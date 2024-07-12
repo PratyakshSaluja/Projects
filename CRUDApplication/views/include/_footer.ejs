@@ -1,0 +1,22 @@
+<footer class="my-4"></footer>
+</div>
+<script src="/path/to/fontawesome/js/all.min.js"></script>
+<script>
+    async function deleteUser(userName) {
+        try {
+            const response = await fetch(`/delete-user/${userName}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                alert('User deleted successfully');
+                location.reload();
+            } else {
+                alert('Error deleting user');
+            }
+        } catch (error) {
+            console.log('Error:', error);
+        }
+    }
+</script>
+</body>
+</html>

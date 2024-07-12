@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= user ? 'Edit User' : 'Add User' %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="my-4 text-center">
+            <h1><%= user ? 'Edit User' : 'Add User' %></h1>
+        </header>
+        <main>
+            <form action="<%= user ? '/update-user/' + user.Name : '/add-user' %>" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<%= user ? user.Name : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="<%= user ? user.email : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="Male" <%= user && user.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                        <option value="Female" <%= user && user.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select class="form-control" id="status" name="status">
+                        <option value="Active" <%= user && user.status === 'Active' ? 'selected' : '' %>>Active</option>
+                        <option value="Inactive" <%= user && user.status === 'Inactive' ? 'selected' : '' %>>Inactive</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success"><%= user ? 'Update' : 'Submit' %></button>
+                <a href="/" class="btn btn-primary ml-2">All Users</a>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
