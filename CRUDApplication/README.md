@@ -1,3 +1,5 @@
+Stored Procedure:
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getvar`(
   IN recordType INT, 
   IN userName VARCHAR(255), 
